@@ -3,7 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Gamebounds
+  - B
+  - G
+  - L
+  - M
+  - S
+  - Gas
+  - Health
+  - Score
+  - Shield
+  - Torpedo
+  - Boss
+  - Enemy
+  - Gun
+  - BoomPooler
+  - DeathPooler
+  - EnemyPooler
+  - EnemyBulletPooler
   layers:
   - Default
   - TransparentFX
