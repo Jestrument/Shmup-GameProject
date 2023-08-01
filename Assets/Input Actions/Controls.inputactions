@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Fire Torpedo",
+                    "name": "FireTorpedo",
                     "type": "Button",
                     "id": "bac37bff-e79a-450b-955d-7bdfb3bdb6fa",
                     "expectedControlType": "Button",
@@ -281,7 +281,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Fire Torpedo",
+                    "action": "FireTorpedo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b3dc324-e638-4af3-8f55-f69a5973206f",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireTorpedo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

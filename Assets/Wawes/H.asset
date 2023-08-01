@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0c1632509a6e2438aaaf79e0acf7eb, type: 3}
+  m_Name: H
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 7119598487890224783, guid: d4ccc8ccfa0319e4ebcafb091c46a638, type: 3}
+  enemyCount: 2
+  rate: 1
+  pooler: 3
+  xMin: 3
+  xMax: -9.75
+  yMin: 10
+  yMax: 10
+  xIsEmpty: 1
+  xOffset: []
+  yIsEmpty: 0
+  yOffset:
+  - 0
+  - 5

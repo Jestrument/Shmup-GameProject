@@ -46,7 +46,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Fire Torpedo"",
+                    ""name"": ""FireTorpedo"",
                     ""type"": ""Button"",
                     ""id"": ""bac37bff-e79a-450b-955d-7bdfb3bdb6fa"",
                     ""expectedControlType"": ""Button"",
@@ -303,7 +303,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Fire Torpedo"",
+                    ""action"": ""FireTorpedo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b3dc324-e638-4af3-8f55-f69a5973206f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireTorpedo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -615,7 +626,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_FireTorpedo = m_Player.FindAction("Fire Torpedo", throwIfNotFound: true);
+        m_Player_FireTorpedo = m_Player.FindAction("FireTorpedo", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);

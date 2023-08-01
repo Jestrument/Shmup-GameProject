@@ -46,6 +46,10 @@ public class GunPoint : MonoBehaviour
 	[SerializeField] public BoomPooler boomPool;
 	[SerializeField] public Boom boom;
 	
+	[SerializeField] private TorpedoPooler torpedoPool;
+	[SerializeField] private Torpedo tData;
+	
+	public int tCount = 1;
 	public bool piercingOn;
 	public bool breakerOn;
 	
@@ -71,7 +75,7 @@ public class GunPoint : MonoBehaviour
 			float bulDirX = transform.position.x + Mathf.Sin((angle * Mathf.PI) / 180f);
 			float bulDirY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180f);
 			Vector3 bulMoveVector = new Vector3(bulDirX, bulDirY, 0);
-			Vector2 bulDir =(bulMoveVector - transform.position).normalized;
+			Vector2 bulDir = (bulMoveVector - transform.position).normalized;
 			GameObject g = bulletPool.GetObject();
 			g.transform.position = new Vector3(transform.position.x + xPos, transform.position.y, transform.position.z);
 			g.transform.rotation = transform.rotation;		
@@ -92,7 +96,22 @@ public class GunPoint : MonoBehaviour
 		}
 	}
 	
-	
+	public void FireTorpedo()
+	{		
+		for(int l =0; l< tCount; l++)
+		{
+			float tDirX = transform.position.x + Mathf.Sin((0 * Mathf.PI) / 180f);
+			float tDirY = transform.position.y + Mathf.Cos((0 * Mathf.PI) / 180f);
+			Vector3 tMoveVector = new Vector3(tDirX, tDirY, 0);
+			Vector2 tDir = (tMoveVector - transform.position).normalized;
+			GameObject g = torpedoPool.GetObject();
+			g.transform.position = transform.position;
+			g.transform.rotation = transform.rotation;
+			g.SetActive(true);
+			tData = g.GetComponent<Torpedo>();
+			tData.SetMoveDirection(tDir);
+		}
+	}
 	
 	public void ChangeBulletType(string item)
 	{

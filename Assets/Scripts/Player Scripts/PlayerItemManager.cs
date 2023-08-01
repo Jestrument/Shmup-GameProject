@@ -27,7 +27,7 @@ public class PlayerItemManager : MonoBehaviour
 	
 	
 	//Player Movement
-	[SerializeField] PlayerMovement pMove;
+	[SerializeField] DropPooler dropPooler;
 	
 	//Hitpoint Manager
 	[SerializeField] PlayerHealthSystem pHS;
@@ -52,19 +52,19 @@ public class PlayerItemManager : MonoBehaviour
 			{
 				case >3:
 				weaponB = itemMax;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 3:
 				barrel.ChangeBulletType("B3");
 				UiManager.UpdateWeaponLevel(3);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 2:
 				barrel.ChangeBulletType("B2");
 				UiManager.UpdateWeaponLevel(2);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);;
 				break;
 				
 				case 1:
@@ -72,7 +72,7 @@ public class PlayerItemManager : MonoBehaviour
 				barrel.ChangeBulletType("B1");
 				UiManager.UpdateWeaponLevel(1);
 				UiManager.UpdateWeaponImage(1);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				weaponG = 0;
 				weaponL = 0;
 				weaponM = 0;
@@ -91,19 +91,19 @@ public class PlayerItemManager : MonoBehaviour
 			{
 				case >3:
 				weaponG = itemMax;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 3:
 				barrel.ChangeBulletType("G3");
 				UiManager.UpdateWeaponLevel(3);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 2:
 				barrel.ChangeBulletType("G2");
 				UiManager.UpdateWeaponLevel(2);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 1:
@@ -115,7 +115,7 @@ public class PlayerItemManager : MonoBehaviour
 				weaponL = 0;
 				weaponM = 0;
 				weaponS = 0;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 0:
@@ -129,19 +129,19 @@ public class PlayerItemManager : MonoBehaviour
 			{
 				case >3:
 				weaponL = itemMax;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 3:
 				barrel.ChangeBulletType("L3");
 				UiManager.UpdateWeaponLevel(3);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 2:
 				barrel.ChangeBulletType("L2");
 				UiManager.UpdateWeaponLevel(2);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 1:
@@ -153,7 +153,7 @@ public class PlayerItemManager : MonoBehaviour
 				weaponG = 0;
 				weaponM = 0;
 				weaponS = 0;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 0:
@@ -167,21 +167,21 @@ public class PlayerItemManager : MonoBehaviour
 			{
 				case >3:
 				weaponM = itemMax;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);;
 				break;
 				
 				case 3:
 				GunMLevel(3);
 				barrel.ChangeBulletType("M3");
 				UiManager.UpdateWeaponLevel(3);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);;
 				break;
 				
 				case 2:
 				GunMLevel(2);
 				barrel.ChangeBulletType("M2");
 				UiManager.UpdateWeaponLevel(2);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 1:
@@ -193,11 +193,10 @@ public class PlayerItemManager : MonoBehaviour
 				weaponG = 0;
 				weaponL = 0;
 				weaponS = 0;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 0:
-				Destroy(other.gameObject);
 				break;
 			}
 			break;
@@ -208,19 +207,19 @@ public class PlayerItemManager : MonoBehaviour
 			{
 				case >3:
 				weaponS = itemMax;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 3:
 				barrel.ChangeBulletType("S3");
 				UiManager.UpdateWeaponLevel(3);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 2:
 				barrel.ChangeBulletType("S2");
 				UiManager.UpdateWeaponLevel(2);
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 1:
@@ -232,29 +231,34 @@ public class PlayerItemManager : MonoBehaviour
 				weaponG = 0;
 				weaponL = 0;
 				weaponM = 0;
-				Destroy(other.gameObject);
+				dropPooler.ReturnObject(other.gameObject);
 				break;
 				
 				case 0:
-				Destroy(other.gameObject);
 				break;
 			}
 			break;
 			
 			case "Gas":
 			timer.AddGas(fuelAmount);
-			Destroy(other.gameObject);
+			dropPooler.ReturnObject(other.gameObject);
 			break;
 			
 			case "Health":
 			pHS.HealDamage(1);
-			Destroy(other.gameObject);
+			dropPooler.ReturnObject(other.gameObject);
+			break;
+			
+			case "1Up":
+			UiManager.IncreaseLiveCount(500);
+			UiManager.UpdateLivesText();
+			dropPooler.ReturnObject(other.gameObject);
 			break;
 			
 			case "Score":
 			UiManager.IncreaseScoreCount(500);
 			UiManager.UpdateScoreText();
-			Destroy(other.gameObject);
+			dropPooler.ReturnObject(other.gameObject);
 			break;
 			
 			case "Shield":
@@ -263,10 +267,16 @@ public class PlayerItemManager : MonoBehaviour
 			Destroy(other.gameObject);
 			break;
 			
+			case "TorpedoBundle":
+			UiManager.IncreaseTorpedoCount(3);
+			UiManager.UpdateTorpedoText();
+			dropPooler.ReturnObject(other.gameObject);
+			break;
+			
 			case "Torpedo":
 			UiManager.IncreaseTorpedoCount(1);
 			UiManager.UpdateTorpedoText();
-			Destroy(other.gameObject);
+			dropPooler.ReturnObject(other.gameObject);
 			break;
 		}
     }

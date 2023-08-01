@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class EnemyGunHealth : MonoBehaviour
 {
+	private EnemyGunPoint gun;
+	public int maxHealth = 2;
 	public int health;
 	
 	[SerializeField] SpriteRenderer render;
 	[SerializeField] Sprite original;
 	[SerializeField] Sprite flash;
+	
+	private void OnEnable()
+	{
+		gun = GetComponent<EnemyGunPoint>();
+		health = maxHealth;
+	}
 
 	public void TakeDamage(int damage)
 	{	
@@ -16,7 +24,11 @@ public class EnemyGunHealth : MonoBehaviour
 		StartCoroutine(HitFlash());
 		if(health <= 0)
 		{
+			GetComponent<LootBag>().GetLoots(transform.position);
+			gun.gunIsDead = true;
 			this.gameObject.SetActive(false);
+			
+			health = maxHealth;
 		}
 	}
 	
@@ -28,4 +40,15 @@ public class EnemyGunHealth : MonoBehaviour
 		render.sprite = original;
 		render.color = Color.white;
 	}
+	
+	public void Reset()
+	{
+		health = maxHealth;
+		render.sprite = original;
+		render.color = Color.white;
+		this.gameObject.SetActive(true);
+		gun.gunIsDead = false;
+	}
+	
+	
 }

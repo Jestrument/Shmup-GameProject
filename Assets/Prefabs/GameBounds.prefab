@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 374962198152709240}
   - component: {fileID: 2746723938977378310}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7984211135409416581}
   - component: {fileID: 2344253039866257586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5376682490924302514}
   - component: {fileID: 7962366315387155361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4249184837053283869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6, y: 0, z: 0}
+  m_LocalPosition: {x: 4.55, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 4975731551035643761}
   - component: {fileID: 4975731551035643760}
   - component: {fileID: 4975731551035643763}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameBounds
   m_TagString: Gamebounds
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.5, y: 0}
+  m_Offset: {x: 4.56, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -330,7 +330,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -11.1, y: 0}
+  m_Offset: {x: -11.35, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7684994389786368292}
   - component: {fileID: 5478205966850646487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5568765372341747597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.2, y: 0, z: 0}
+  m_LocalPosition: {x: -11.35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

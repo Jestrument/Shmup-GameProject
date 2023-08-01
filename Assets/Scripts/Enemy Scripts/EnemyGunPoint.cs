@@ -14,21 +14,57 @@ public class EnemyGunPoint : MonoBehaviour
 	
 	public float force = 10.0f;
 	public float distance = 1.0f;
+	public float delay;
+	public float timer;
 	public int colliderType;
 	
 	[SerializeField] private float startAngle;
 	[SerializeField] private float endAngle;
 	
 	[SerializeField] private float startPosition;
-	[SerializeField] private float endPosition; 
+	[SerializeField] private float endPosition;
+
+	public bool canShoot = false;
+	public bool gunIsDead;
 	
 	private void Start()
 	{
 		eBulletPool = GameObject.FindWithTag("EnemyBulletPooler").GetComponent<EnemyBulletPooler>();
 	}
 	
+	private void Update()
+	{
+		timer += Time.deltaTime;
+		switch(gunIsDead)
+		{
+			case true:
+			break;
+			
+			case false:
+			if(timer >= delay)
+			{
+				Shoot();
+				timer = 0;
+			}
+			break;
+		}
+	}
 	
-	public void Shoot()
+	private void Shoot()
+    {
+		if(!canShoot) return;
+		FireGun();
+		StartCoroutine(CanShoot());
+    }
+	
+	IEnumerator CanShoot()
+	{
+		canShoot = false;
+		yield return new WaitForSeconds(delay);
+		canShoot = true;
+	}
+	
+	public void FireGun()
 	{	
 		float angleStep = (endAngle - startAngle) /bulletCount;
 		float angle = startAngle;
@@ -49,10 +85,12 @@ public class EnemyGunPoint : MonoBehaviour
 			render.sprite = bulletImage;			
 			g.SetActive(true);
 			eBullet = g.GetComponent<EnemyBullet>();
+			eBullet.speed = force;
+			eBullet.lifeTime = distance;
 			eBullet.SwitchColliders(colliderType);
+			eBullet.SetMoveDirection(bulDir);
 			angle += angleStep;
 			xPos += xPosStep;
 		}
 	}
-	
 }

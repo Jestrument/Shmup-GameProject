@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-	public int health = 10;
+	public int maxHealth = 10;
+	public int health;
 	[SerializeField] GameObject[] guns;
 	
 	[SerializeField] SpriteRenderer render;
@@ -20,12 +21,19 @@ public class EnemyHealth : MonoBehaviour
 		deathPooler = GameObject.FindWithTag("DeathPooler").GetComponent<DeathPooler>();
 	}
 	
+	void OnEnable()
+	{
+		health = maxHealth;
+		ResetFlash();
+	}
+	
    public void TakeDamage(int damage)
 	{	
 		health -= damage;
 		StartCoroutine(HitFlash());
 		if(health <= 0)
 		{
+			GetComponent<LootBag>().GetLoots(transform.position);
 			GameObject g = deathPooler.GetObject();
 			g.transform.position = transform.position;
 			g.transform.rotation = Quaternion.identity;
@@ -35,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
 			{
 				gun.SetActive(true);
 			}
+			health = maxHealth;
 			enemyPooler.ReturnObject(gameObject);
 		}
 	}
@@ -44,6 +53,13 @@ public class EnemyHealth : MonoBehaviour
 		render.sprite = flash;
 		render.color = new Color(0.8f, 0.8f, 0.8f);
 		yield return new WaitForSeconds(0.1f);
+		render.sprite = original;
+		render.color = Color.white;
+	}
+	
+	void ResetFlash()
+	{
+		health = maxHealth;
 		render.sprite = original;
 		render.color = Color.white;
 	}

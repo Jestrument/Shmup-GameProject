@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4433331305109376975}
-  m_Layer: 0
+  - component: {fileID: 6931632704635328999}
+  m_Layer: 6
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,34 @@ Transform:
   m_Father: {fileID: 4501355328900062492}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6931632704635328999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590287532453940152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8224676373848294d85f40948fe0444a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBulletPool: {fileID: 0}
+  eBullet: {fileID: 0}
+  render: {fileID: 0}
+  bulletImage: {fileID: 21300000, guid: 6a0f45fd4f6f5644fa3be41250666a96, type: 3}
+  bulletCount: 1
+  force: -5
+  distance: 5
+  delay: 3
+  timer: 0
+  colliderType: 2
+  startAngle: 0
+  endAngle: 0
+  startPosition: 0
+  endPosition: 0
+  canShoot: 0
+  gunIsDead: 0
 --- !u!1 &3638358954036617233
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7099427574961439794}
   - component: {fileID: 1796097056384801189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy G Base Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +155,9 @@ GameObject:
   - component: {fileID: 4501355328900062492}
   - component: {fileID: 3673079619776546421}
   - component: {fileID: 7641019564504554224}
-  m_Layer: 0
+  - component: {fileID: 4586449779362387483}
+  - component: {fileID: 8975287041105567182}
+  m_Layer: 6
   m_Name: Enemy G
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4566905181970961507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.6420436, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -190,12 +221,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5162a253d2206544697fa63868ef8a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   health: 10
   guns:
   - {fileID: 6171120760586912549, guid: 5621b26806f7cb94a897923994366748, type: 3}
   render: {fileID: 5468101566919687158}
   original: {fileID: 21300000, guid: 2b770cc446efd6e41aaea4af4ae828bc, type: 3}
   flash: {fileID: 21300000, guid: 2e547c417bb2d424191aef209ea9fff1, type: 3}
+--- !u!114 &4586449779362387483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566905181970961507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60eb0ea408fcae74bb4995baf08208fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0
+  frequency: 0
+  speed: 1
+  yEndPos: 4
+  cosIsOn: 0
+  isEndDeath: 0
+  isMinus: 0
+--- !u!114 &8975287041105567182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566905181970961507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43e89fd7a2a68347ab89a67404e03e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootList:
+  - {fileID: 11400000, guid: c55d1b77b5dc117498582681f25e99d3, type: 2}
+  - {fileID: 11400000, guid: 081eb938ce9553644b1362e41689ff7a, type: 2}
+  - {fileID: 11400000, guid: 5d914ee3ed2556341a7588d9f4e800ba, type: 2}
+  - {fileID: 11400000, guid: 7489d10177fce3b4a857fc86149adf65, type: 2}
+  - {fileID: 11400000, guid: 53d6c73314992794197473b0088e081b, type: 2}
+  - {fileID: 11400000, guid: d502c25a9537d5a40a1a2aa3085804c5, type: 2}
+  - {fileID: 11400000, guid: d489410ee03e2e546ac3d0b82ca4f91d, type: 2}
+  - {fileID: 11400000, guid: 479324cb68d551141953e61e55538bb1, type: 2}
 --- !u!1 &6988377415491038466
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5624852010148276364}
   - component: {fileID: 5071195824296818888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy G Motor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7845013980511519309}
   - component: {fileID: 5468101566919687158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy G Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

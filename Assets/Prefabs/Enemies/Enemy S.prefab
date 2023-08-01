@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6655578187378658194}
   - component: {fileID: 3385109414231989114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy S BaseColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,11 @@ GameObject:
   - component: {fileID: 1314173112716480232}
   - component: {fileID: 7196666552279376218}
   - component: {fileID: 1618042523601493302}
-  m_Layer: 0
+  - component: {fileID: 8698740069324594935}
+  - component: {fileID: 6368111646079488976}
+  m_Layer: 6
   m_Name: Enemy S
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3118875110698121003}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.723733, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -150,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5162a253d2206544697fa63868ef8a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   health: 10
   guns:
   - {fileID: 3529155232593204147}
@@ -157,6 +160,45 @@ MonoBehaviour:
   render: {fileID: 6680951403615905002}
   original: {fileID: 21300000, guid: 5fe861f9b42a9954ea71ef31b6828206, type: 3}
   flash: {fileID: 21300000, guid: e643d7a487fe1bc41984c1d25794f759, type: 3}
+--- !u!114 &8698740069324594935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118875110698121003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60eb0ea408fcae74bb4995baf08208fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0
+  frequency: 0
+  speed: 1
+  yEndPos: -8
+  cosIsOn: 0
+  isEndDeath: 1
+  isMinus: 0
+--- !u!114 &6368111646079488976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118875110698121003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43e89fd7a2a68347ab89a67404e03e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootList:
+  - {fileID: 11400000, guid: c55d1b77b5dc117498582681f25e99d3, type: 2}
+  - {fileID: 11400000, guid: 5d914ee3ed2556341a7588d9f4e800ba, type: 2}
+  - {fileID: 11400000, guid: 7489d10177fce3b4a857fc86149adf65, type: 2}
+  - {fileID: 11400000, guid: 53d6c73314992794197473b0088e081b, type: 2}
+  - {fileID: 11400000, guid: d502c25a9537d5a40a1a2aa3085804c5, type: 2}
+  - {fileID: 11400000, guid: d489410ee03e2e546ac3d0b82ca4f91d, type: 2}
+  - {fileID: 11400000, guid: 479324cb68d551141953e61e55538bb1, type: 2}
 --- !u!1 &3529155232593204147
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,9 +210,11 @@ GameObject:
   - component: {fileID: 7377629482672729842}
   - component: {fileID: 5728401307733330372}
   - component: {fileID: 3253253736139438640}
-  m_Layer: 0
+  - component: {fileID: 3041992331667697155}
+  - component: {fileID: 4025058137740227725}
+  m_Layer: 6
   m_Name: GunPoint L
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,10 +273,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8657cf63bc19a3e469ccdd3a3f41fdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 2
   health: 2
   render: {fileID: 48101776455825251}
   original: {fileID: 21300000, guid: b7f322ad189274040a3ad0b23b42dfc5, type: 3}
   flash: {fileID: 21300000, guid: 6d56c4ba057484b49bb61aa5530ef859, type: 3}
+--- !u!114 &3041992331667697155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529155232593204147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8224676373848294d85f40948fe0444a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBulletPool: {fileID: 0}
+  eBullet: {fileID: 0}
+  render: {fileID: 0}
+  bulletImage: {fileID: 21300000, guid: 200dfa24308b98f4db1e99b14f76e2b1, type: 3}
+  bulletCount: 2
+  force: 5
+  distance: 3
+  delay: 3
+  timer: 0
+  colliderType: 3
+  startAngle: 0
+  endAngle: 0
+  startPosition: 0.06
+  endPosition: -0.12
+  canShoot: 0
+  gunIsDead: 0
+--- !u!114 &4025058137740227725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529155232593204147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43e89fd7a2a68347ab89a67404e03e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootList:
+  - {fileID: 11400000, guid: b68780ab764fd2d4cba64a867ff61531, type: 2}
+  - {fileID: 11400000, guid: 5d914ee3ed2556341a7588d9f4e800ba, type: 2}
 --- !u!1 &4186105563391467428
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6683577914099983177}
   - component: {fileID: 6680951403615905002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy S Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4390811459868310720}
   - component: {fileID: 48101776455825251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy S Gun L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113030091773872295}
   - component: {fileID: 8723510148618508158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy S Gun R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1800299358921918245}
   - component: {fileID: 8044966277159793706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy S Motor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,9 +668,11 @@ GameObject:
   - component: {fileID: 5016343928854272515}
   - component: {fileID: 6431770620673256463}
   - component: {fileID: 434576267816981881}
-  m_Layer: 0
+  - component: {fileID: 107402810127409463}
+  - component: {fileID: 4746710634773267375}
+  m_Layer: 6
   m_Name: GunPoint R
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -641,7 +731,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8657cf63bc19a3e469ccdd3a3f41fdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 2
   health: 2
   render: {fileID: 8723510148618508158}
   original: {fileID: 21300000, guid: f30e393f98ce79f44961dbe5ee97339b, type: 3}
   flash: {fileID: 21300000, guid: f0f48ad2a56113d4abfcda0d53bac4fc, type: 3}
+--- !u!114 &107402810127409463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560380906214877733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8224676373848294d85f40948fe0444a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBulletPool: {fileID: 0}
+  eBullet: {fileID: 0}
+  render: {fileID: 0}
+  bulletImage: {fileID: 21300000, guid: 200dfa24308b98f4db1e99b14f76e2b1, type: 3}
+  bulletCount: 2
+  force: 5
+  distance: 3
+  delay: 3
+  timer: 0
+  colliderType: 3
+  startAngle: 0
+  endAngle: 0
+  startPosition: 0.06
+  endPosition: -0.12
+  canShoot: 0
+  gunIsDead: 0
+--- !u!114 &4746710634773267375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560380906214877733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43e89fd7a2a68347ab89a67404e03e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootList:
+  - {fileID: 11400000, guid: b68780ab764fd2d4cba64a867ff61531, type: 2}
+  - {fileID: 11400000, guid: 5d914ee3ed2556341a7588d9f4e800ba, type: 2}

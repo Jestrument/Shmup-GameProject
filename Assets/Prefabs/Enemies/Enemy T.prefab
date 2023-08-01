@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6254225059743957049}
   - component: {fileID: 3941116536949084726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thief Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: ee82edb0ee3515b4e98816d7e07d8c12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,9 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1545527402126388124}
   - component: {fileID: 2747780161138469048}
-  - component: {fileID: 1467674123325293113}
-  - component: {fileID: 5086056520050360812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thief Base Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,76 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1467674123325293113
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681093275456015415}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.09246078, y: 0.874275}
-      - {x: -0.09332458, y: 0.87428683}
-      - {x: -0.31063277, y: 0.6548603}
-      - {x: -0.4989777, y: 0.27893066}
-      - {x: -0.4999909, y: -0.6555478}
-      - {x: -0.34143877, y: -0.8735991}
-      - {x: 0.34306014, y: -0.8742978}
-      - {x: 0.49959743, y: -0.65503347}
-      - {x: 0.49954778, y: 0.28042167}
-      - {x: 0.31185946, y: 0.6553287}
---- !u!60 &5086056520050360812
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681093275456015415}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.09246078, y: 0.874275}
-      - {x: -0.09332458, y: 0.87428683}
-      - {x: -0.31063277, y: 0.6548603}
-      - {x: -0.4989777, y: 0.27893066}
-      - {x: -0.4999909, y: -0.6555478}
-      - {x: -0.34143877, y: -0.8735991}
-      - {x: 0.34306014, y: -0.8742978}
-      - {x: 0.49959743, y: -0.65503347}
-      - {x: 0.49954778, y: 0.28042167}
-      - {x: 0.31185946, y: 0.6553287}
 --- !u!1 &6202276444551311611
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4386467131380228326}
   - component: {fileID: 5892754522575712495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thief Seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4697936351653395867}
   - component: {fileID: 7511362742817129195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2212440022874810093}
   - component: {fileID: 1510881553263232728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thief Motor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +429,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8740419557243530267}
-  m_Layer: 0
+  - component: {fileID: 3151616578572411196}
+  m_Layer: 6
   m_Name: Enemy T
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -528,3 +457,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &3151616578572411196
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740419557243530266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.09246078, y: 0.874275}
+      - {x: -0.09332458, y: 0.87428683}
+      - {x: -0.31063277, y: 0.6548603}
+      - {x: -0.4989777, y: 0.27893066}
+      - {x: -0.4999909, y: -0.6555478}
+      - {x: -0.34143877, y: -0.8735991}
+      - {x: 0.34306014, y: -0.8742978}
+      - {x: 0.49959743, y: -0.65503347}
+      - {x: 0.49954778, y: 0.28042167}
+      - {x: 0.31185946, y: 0.6553287}

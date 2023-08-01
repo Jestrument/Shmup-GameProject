@@ -13,10 +13,6 @@ public class TorpedoPooler : MonoBehaviour
 	private List<GameObject> freeList;
 	private List<GameObject> usedList;
 	
-	//How fast does the explosion move and how far does it move
-	public float force;
-	public float lifeTime;
-	
     private void Awake()
     {
 		freeList = new List<GameObject>();

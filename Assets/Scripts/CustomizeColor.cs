@@ -17,8 +17,10 @@ public class CustomizeColor : MonoBehaviour
 	
 	[SerializeField] private SpriteRenderer baseHead;
 	[SerializeField] private SpriteRenderer baseBody;
-	[SerializeField] private SpriteRenderer baseArmL;
-	[SerializeField] private SpriteRenderer baseArmR;
+	[SerializeField] private SpriteRenderer baseUpperArmL;
+	[SerializeField] private SpriteRenderer baseLowerArmL;
+	[SerializeField] private SpriteRenderer baseUpperArmR;
+	[SerializeField] private SpriteRenderer baseLowerArmR;
 	[SerializeField] private SpriteRenderer baseLegL;
 	[SerializeField] private SpriteRenderer baseLegR;
 	
@@ -64,8 +66,10 @@ public class CustomizeColor : MonoBehaviour
 		
 		baseHead.color = playerColor;
 		baseBody.color = playerColor;
-		baseArmL.color = playerColor;
-		baseArmR.color = playerColor;
+		baseUpperArmL.color = playerColor;
+		baseLowerArmL.color = playerColor;
+		baseUpperArmR.color = playerColor;
+		baseLowerArmR.color = playerColor;
 		baseLegL.color = playerColor;
 		baseLegR.color = playerColor;
 		

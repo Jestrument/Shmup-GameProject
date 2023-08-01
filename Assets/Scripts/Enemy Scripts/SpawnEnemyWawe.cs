@@ -7,16 +7,31 @@ public class SpawnEnemyWawe : MonoBehaviour
 	public enum SpawnState { Spawning, Waiting, Counting, Finished}
 	
 	[SerializeField] EnemyPooler enemyPooler;
+	[SerializeField] EnemyPooler bPooler;
+	[SerializeField] EnemyPooler gPooler;
+	[SerializeField] EnemyPooler hPooler;
+	[SerializeField] EnemyPooler lPooler;
+	[SerializeField] EnemyPooler mPooler;
+	[SerializeField] EnemyPooler sPooler;
+	[SerializeField] EnemyPooler xMinusPooler;
+	[SerializeField] EnemyPooler xPooler;
+	[SerializeField] EnemyPooler yPooler;
+	
+	//EnemyWawes
+	[SerializeField] Wawe waweB;
+	[SerializeField] Wawe waweG;
+	[SerializeField] Wawe waweH;
+	[SerializeField] Wawe waweL;
+	[SerializeField] Wawe waweM;
+	[SerializeField] Wawe waweS;
+	[SerializeField] Wawe waweXMinus;
+	[SerializeField] Wawe waweX;
+	[SerializeField] Wawe waweY;
 	
 	[System.Serializable]
 	public class Wawe 
 	{
-		public string name;
-		public GameObject enemy;
-		public int enemyCount;
-		public float rate;
-		
-		public Vector3[] spawnPoints;
+		public EnemyWawe enemyData;
 	}
 	
 	public Wawe[] wawes;
@@ -32,6 +47,49 @@ public class SpawnEnemyWawe : MonoBehaviour
     void Start()
     {
         timer = timeBetweenWawes;
+		wawes = new Wawe[Random.Range(1,5)];
+		for(int i = 0; i < wawes.Length; i++)
+		{
+			int waweNumber = Random.Range(0,8);
+			switch(waweNumber)
+			{
+				case 0:
+				wawes[i] = waweB;
+				break;
+				
+				case 1:
+				wawes[i] = waweG;
+				break;
+				
+				case 2:
+				wawes[i] = waweH;
+				break;
+				
+				case 3:
+				wawes[i] = waweL;
+				break;
+				
+				case 4:
+				wawes[i] = waweM;
+				break;
+				
+				case 5:
+				wawes[i] = waweS;
+				break;
+				
+				case 6:
+				wawes[i] = waweXMinus;
+				break;
+				
+				case 7:
+				wawes[i] = waweX;
+				break;
+				
+				case 8:
+				wawes[i] = waweY;
+				break;
+			}
+		}
     }
 
     void Update()
@@ -40,8 +98,17 @@ public class SpawnEnemyWawe : MonoBehaviour
 		{
 			if(!EnemyIsAlive())
 			{
-				
+				WaweIsCompleted();
 			}
+			else 
+			{
+				return;
+			}
+		}
+		
+		if(state == SpawnState.Finished)
+		{
+			return;
 		}
 		
         if(timer <= 0)
@@ -61,6 +128,21 @@ public class SpawnEnemyWawe : MonoBehaviour
 		}
     }
 	
+	void WaweIsCompleted()
+	{
+		state = SpawnState.Counting;
+		timer = timeBetweenWawes;
+		if(nextWawe + 1 > wawes.Length - 1)
+		{
+			state = SpawnState.Finished;
+		}
+		else
+		{
+			nextWawe++;
+		}
+		
+	}
+	
 	bool EnemyIsAlive()
 	{
 		searchTimer -= Time.deltaTime;
@@ -79,15 +161,83 @@ public class SpawnEnemyWawe : MonoBehaviour
 	
 	IEnumerator SpawnWawe(Wawe _wawe)
 	{
+		_wawe.enemyData.enemy.transform.position = Vector3.zero;
 		state = SpawnState.Spawning;
 		
-		
-		for(int i = 0; i < _wawe.enemyCount; i++)
+		switch(_wawe.enemyData.pooler)
 		{
-			_wawe.enemy.transform.position = _wawe.spawnPoints[i];
-			SpawnEnemy(_wawe.enemy);
+			case 1:
+			enemyPooler = bPooler;
+			break;
 			
-			yield return new WaitForSeconds(1f / _wawe.rate);
+			case 2:
+			enemyPooler = gPooler;
+			break;
+			
+			case 3:
+			enemyPooler = hPooler;
+			break;
+			
+			case 4:
+			enemyPooler = lPooler;
+			break;
+			
+			case 5:
+			enemyPooler = mPooler;
+			break;
+			
+			case 6:
+			enemyPooler = sPooler;
+			break;
+			
+			case 7:
+			enemyPooler = xMinusPooler;
+			break;
+			
+			case 8:
+			enemyPooler = xPooler;
+			break;
+			
+			case 9:
+			enemyPooler = yPooler;
+			break;
+		}
+		
+		float xPos = Random.Range(_wawe.enemyData.xMin,_wawe.enemyData.xMax);
+		
+		float yPos = Random.Range(_wawe.enemyData.yMin,_wawe.enemyData.yMax);
+		
+		float x;
+		float y;
+		Vector3[] spawnpoint = new Vector3[_wawe.enemyData.enemyCount];
+		
+		for(int i = 0; i < _wawe.enemyData.enemyCount; i++)
+		{
+			switch(_wawe.enemyData.xIsEmpty)
+			{
+				case false:
+				x = xPos + _wawe.enemyData.xOffset[i];
+				break;
+			
+				case true:
+				x = xPos;
+				break;
+			}
+				
+			switch(_wawe.enemyData.yIsEmpty)
+			{
+				case false:
+				y = yPos + _wawe.enemyData.yOffset[i];
+				break;
+				
+				case true:
+				y = yPos;
+				break;
+			}
+			spawnpoint[i] = new Vector3(x, y, 0);
+			_wawe.enemyData.enemy.transform.position = spawnpoint[i];
+			SpawnEnemy(_wawe.enemyData.enemy);
+			yield return new WaitForSeconds(_wawe.enemyData.rate);
 		}
 		
 		state = SpawnState.Waiting;
@@ -98,9 +248,13 @@ public class SpawnEnemyWawe : MonoBehaviour
 	void SpawnEnemy(GameObject _enemy)
 	{
 		GameObject g = enemyPooler.GetObject();
-		g = _enemy;
 		g.transform.position = _enemy.transform.position;
 		g.transform.rotation = _enemy.transform.rotation;
+		EnemyGunPoint[] gunpoints = g.GetComponentsInChildren<EnemyGunPoint>();
+		foreach(EnemyGunPoint gunpoint in gunpoints)
+		{
+			gunpoint.canShoot= true;
+		}
 		g.SetActive(true);
 	}
 }

@@ -22,6 +22,10 @@ public class Boom : MonoBehaviour
 	
 	[SerializeField] EnemyHealth enemy;
 	[SerializeField] EnemyGunHealth eGun;
+	[SerializeField] EnemyBumber eBumber;
+	
+	[SerializeField] BossGunHealth bGun;
+	[SerializeField] BossHealth boss;
 	
     private void Start()
 	{
@@ -131,7 +135,50 @@ public class Boom : MonoBehaviour
 				eGun.TakeDamage(1);
 				break;
 			}
+			break;
 			
+			case "Bumber":
+			switch(didWeHit)
+			{
+				case true:
+				break;
+			
+				case false:
+				didWeHit = true;
+				eBumber = other.gameObject.GetComponent<EnemyBumber>();
+				eBumber.TakeDamage(1);
+				boomPooler.ReturnObject(gameObject);
+				break;
+			}
+			break;
+			
+			case "BossGun":
+			switch(didWeHit)
+			{
+				case true:
+				break;
+			
+				case false:
+				didWeHit = true;
+				bGun = other.gameObject.GetComponent<BossGunHealth>();
+				bGun.TakeDamage(1);
+				break;
+			}
+			break;
+			
+			
+			case "Boss":
+			switch(didWeHit)
+			{
+				case true:
+				break;
+			
+				case false:
+				didWeHit = true;
+				boss = other.gameObject.GetComponent<BossHealth>();
+				boss.TakeDamage(1);
+				break;
+			}
 			break;
 		}
 	}

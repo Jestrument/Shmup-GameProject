@@ -5,32 +5,38 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gamebounds
+  - BoomPooler
+  - DeathPooler
+  - DropPooler
+  - EnemyBulletPooler
+  - EBullet
   - B
   - G
   - L
   - M
   - S
+  - 1Up
   - Gas
   - Health
   - Score
   - Shield
+  - TorpedoBundle
   - Torpedo
-  - Boss
+  - TBoomPooler
   - Enemy
+  - Bumber
   - Gun
-  - BoomPooler
-  - DeathPooler
-  - EnemyPooler
-  - EnemyBulletPooler
+  - Boss
+  - BossGun
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - GameBounds
   - 
   - 
   - 

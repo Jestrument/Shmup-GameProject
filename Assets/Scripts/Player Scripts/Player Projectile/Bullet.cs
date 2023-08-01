@@ -17,7 +17,6 @@ public class Bullet : MonoBehaviour
 	public int damage;
 	
 	//Boom Stuff
-	private GameObject empty; 
 	private BoomPooler boomPooler;
 	private Boom boom;
 	
@@ -44,12 +43,15 @@ public class Bullet : MonoBehaviour
 	//damage Stuff
 	[SerializeField] EnemyHealth enemy;
 	[SerializeField] EnemyGunHealth eGun;
+	[SerializeField] EnemyBumber eBumber;
+	
+	[SerializeField] BossGunHealth bGun;
+	[SerializeField] BossHealth boss;
 	
 	private void Start()
 	{
 		bullets = transform.parent.GetComponent<BulletPooler>();
-		empty = GameObject.FindWithTag("BoomPooler");
-		boomPooler = empty.GetComponent<BoomPooler>();
+		boomPooler = GameObject.FindWithTag("BoomPooler").GetComponent<BoomPooler>();
 	}
 	
     private void OnEnable()
@@ -213,6 +215,58 @@ public class Bullet : MonoBehaviour
 			}
 			break;
 			
+			case "Bumber":
+			switch(didWeHit)
+			{
+				case true:
+				break;
+				
+				case false:
+				didWeHit = true;
+				switch(gGunIsOn)
+				{
+					case true:
+					float boomAngleStep = (boomEndAngle - boomStartAngle) /boomCount;
+					float boomAngle = boomStartAngle;
+		
+					for(int x = 0; x < boomCount; x++)
+					{
+						float boomDirX = transform.position.x + Mathf.Sin((boomAngle * Mathf.PI) / 180f);
+						float boomDirY = transform.position.y + Mathf.Cos((boomAngle * Mathf.PI) / 180f);
+						Vector3 boomMoveVector = new Vector3(boomDirX, boomDirY, 0);
+						Vector2 boomDir =(boomMoveVector - transform.position).normalized;
+						GameObject b = boomPooler.GetObject();
+						b.transform.position = transform.position;
+						b.transform.rotation = transform.rotation;
+						b.SetActive(true);
+						boom = b.GetComponent<Boom>();
+						boom.speed = boomForce;
+						boom.lifeTime = boomDistance;
+						boom.SwitchColliders(boomCollider);
+						boom.SetMoveDirection(boomDir);
+						boomAngle += boomAngleStep;
+					}
+					break;
+			
+					case false:
+					break;
+				}
+				
+				switch(piercingOn)
+				{
+					case true:
+					break;
+					
+					case false:
+					bullets.ReturnObject(gameObject);
+					break;
+				}
+				eBumber = other.gameObject.GetComponent<EnemyBumber>();
+				eBumber.TakeDamage(1);
+				break;
+			}
+			break;
+			
 			case "Gun":
 			switch(didWeHit)
 			{
@@ -264,6 +318,110 @@ public class Bullet : MonoBehaviour
 				break;
 			}
 			break;
+			
+			case "BossGun":
+			switch(didWeHit)
+			{
+				case true:
+				break;
+				
+				case false:
+				didWeHit = true;
+				switch(gGunIsOn)
+				{
+					case true:
+					float boomAngleStep = (boomEndAngle - boomStartAngle) /boomCount;
+					float boomAngle = boomStartAngle;
+		
+					for(int x = 0; x < boomCount; x++)
+					{
+						float boomDirX = transform.position.x + Mathf.Sin((boomAngle * Mathf.PI) / 180f);
+						float boomDirY = transform.position.y + Mathf.Cos((boomAngle * Mathf.PI) / 180f);
+						Vector3 boomMoveVector = new Vector3(boomDirX, boomDirY, 0);
+						Vector2 boomDir =(boomMoveVector - transform.position).normalized;
+						GameObject b = boomPooler.GetObject();
+						b.transform.position = transform.position;
+						b.transform.rotation = transform.rotation;
+						b.SetActive(true);
+						boom = b.GetComponent<Boom>();
+						boom.speed = boomForce;
+						boom.lifeTime = boomDistance;
+						boom.SwitchColliders(boomCollider);
+						boom.SetMoveDirection(boomDir);
+						boomAngle += boomAngleStep;
+					}
+					break;
+			
+					case false:
+					break;
+				}
+				
+				switch(piercingOn)
+				{
+					case true:
+					break;
+					
+					case false:
+					bullets.ReturnObject(gameObject);
+					break;
+				}
+				bGun = other.gameObject.GetComponent<BossGunHealth>();
+				bGun.TakeDamage(1);
+				break;
+			}
+			break;
+			
+			case "Boss":
+			switch(didWeHit)
+			{
+				case true:
+				break;
+				
+				case false:
+				didWeHit = true;
+				switch(gGunIsOn)
+				{
+					case true:
+					float boomAngleStep = (boomEndAngle - boomStartAngle) /boomCount;
+					float boomAngle = boomStartAngle;
+		
+					for(int x = 0; x < boomCount; x++)
+					{
+						float boomDirX = transform.position.x + Mathf.Sin((boomAngle * Mathf.PI) / 180f);
+						float boomDirY = transform.position.y + Mathf.Cos((boomAngle * Mathf.PI) / 180f);
+						Vector3 boomMoveVector = new Vector3(boomDirX, boomDirY, 0);
+						Vector2 boomDir =(boomMoveVector - transform.position).normalized;
+						GameObject b = boomPooler.GetObject();
+						b.transform.position = transform.position;
+						b.transform.rotation = transform.rotation;
+						b.SetActive(true);
+						boom = b.GetComponent<Boom>();
+						boom.speed = boomForce;
+						boom.lifeTime = boomDistance;
+						boom.SwitchColliders(boomCollider);
+						boom.SetMoveDirection(boomDir);
+						boomAngle += boomAngleStep;
+					}
+					break;
+			
+					case false:
+					break;
+				}
+				
+				switch(piercingOn)
+				{
+					case true:
+					break;
+					
+					case false:
+					bullets.ReturnObject(gameObject);
+					break;
+				}
+				boss = other.gameObject.GetComponent<BossHealth>();
+				boss.TakeDamage(1);
+				break;
+			}
+			break;
 		}
 	}
 	
@@ -277,7 +435,6 @@ public class Bullet : MonoBehaviour
 				case "Enemy":
 				enemy = other.gameObject.GetComponent<EnemyHealth>();
 				enemy.TakeDamage(1);
-				
 				break;
 			
 				case "Gun":
