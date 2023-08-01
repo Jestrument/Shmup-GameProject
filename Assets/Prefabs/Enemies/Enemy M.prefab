@@ -486,7 +486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8425944719763448451}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: -2.9154558, y: 30, z: 0}
+  m_LocalPosition: {x: -2.3341982, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -532,6 +532,7 @@ MonoBehaviour:
   render: {fileID: 3440061691624484234}
   original: {fileID: 21300000, guid: 81b4104b8bc0ce443bb56e7f81ed80ef, type: 3}
   flash: {fileID: 21300000, guid: 80eccc5b25301de44aa1d93120c7c6db, type: 3}
+  hasGun: 1
 --- !u!114 &2976971647613840921
 MonoBehaviour:
   m_ObjectHideFlags: 0

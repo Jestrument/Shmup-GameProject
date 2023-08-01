@@ -35,6 +35,9 @@ public class PlayerItemManager : MonoBehaviour
 	//Ui Manager
 	[SerializeField] PlayerUiManager UiManager;
 	
+	//GunPoint
+	[SerializeField] GunPoint gunPoint;
+	
 	//Timer Manager
 	[SerializeField] Timer timer;
 	public float fuelAmount;
@@ -250,7 +253,7 @@ public class PlayerItemManager : MonoBehaviour
 			break;
 			
 			case "1Up":
-			UiManager.IncreaseLiveCount(500);
+			UiManager.IncreaseLiveCount(1);
 			UiManager.UpdateLivesText();
 			dropPooler.ReturnObject(other.gameObject);
 			break;
@@ -268,12 +271,14 @@ public class PlayerItemManager : MonoBehaviour
 			break;
 			
 			case "TorpedoBundle":
+			gunPoint.tAmount = gunPoint.tAmount + 3;
 			UiManager.IncreaseTorpedoCount(3);
 			UiManager.UpdateTorpedoText();
 			dropPooler.ReturnObject(other.gameObject);
 			break;
 			
 			case "Torpedo":
+			gunPoint.tAmount = gunPoint.tAmount + 3;
 			UiManager.IncreaseTorpedoCount(1);
 			UiManager.UpdateTorpedoText();
 			dropPooler.ReturnObject(other.gameObject);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunPoint : MonoBehaviour
 {
+	[SerializeField] PlayerUiManager pUiManager;
+	
 	[SerializeField] private PlayerShoot pShoot;
 	[SerializeField] private BulletPooler bulletPool;
 	[SerializeField] private Bullet bullet;
@@ -50,6 +52,7 @@ public class GunPoint : MonoBehaviour
 	[SerializeField] private Torpedo tData;
 	
 	public int tCount = 1;
+	public int tAmount = 10;
 	public bool piercingOn;
 	public bool breakerOn;
 	
@@ -97,19 +100,30 @@ public class GunPoint : MonoBehaviour
 	}
 	
 	public void FireTorpedo()
-	{		
-		for(int l =0; l< tCount; l++)
+	{
+		tAmount--;
+		if(tAmount < 0)
 		{
-			float tDirX = transform.position.x + Mathf.Sin((0 * Mathf.PI) / 180f);
-			float tDirY = transform.position.y + Mathf.Cos((0 * Mathf.PI) / 180f);
-			Vector3 tMoveVector = new Vector3(tDirX, tDirY, 0);
-			Vector2 tDir = (tMoveVector - transform.position).normalized;
-			GameObject g = torpedoPool.GetObject();
-			g.transform.position = transform.position;
-			g.transform.rotation = transform.rotation;
-			g.SetActive(true);
-			tData = g.GetComponent<Torpedo>();
-			tData.SetMoveDirection(tDir);
+			tAmount = 0;
+		}
+		
+		if(tAmount > 0)
+		{
+			pUiManager.DecreaseTorpedoLiveCount(1);
+			pUiManager.UpdateTorpedoText();
+			for(int l =0; l< tCount; l++)
+			{
+				float tDirX = transform.position.x + Mathf.Sin((0 * Mathf.PI) / 180f);
+				float tDirY = transform.position.y + Mathf.Cos((0 * Mathf.PI) / 180f);
+				Vector3 tMoveVector = new Vector3(tDirX, tDirY, 0);
+				Vector2 tDir = (tMoveVector - transform.position).normalized;
+				GameObject g = torpedoPool.GetObject();
+				g.transform.position = transform.position;
+				g.transform.rotation = transform.rotation;
+				g.SetActive(true);
+				tData = g.GetComponent<Torpedo>();
+				tData.SetMoveDirection(tDir);
+			}
 		}
 	}
 	

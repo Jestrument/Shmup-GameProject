@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
+	[SerializeField] PlayerUiManager pUiManager;
 	
 	//Health System
 	public int maxHealth = 4;
 	public int currentHealth;
-	public int lives;
+	public int lives = 5;
 	[SerializeField] SpriteRenderer boat;
 	[SerializeField] Sprite outline;
 	[SerializeField] Sprite hit;
@@ -177,6 +178,9 @@ public class PlayerHealthSystem : MonoBehaviour
 	
 	IEnumerator Die()
 	{
+		lives--;
+		pUiManager.DecreaseLiveCount(1);
+		pUiManager.UpdateLivesText();
 		GameObject g = deathPooler.GetObject();
 		g.transform.position = transform.position;
 		g.transform.rotation = Quaternion.identity;
@@ -184,7 +188,7 @@ public class PlayerHealthSystem : MonoBehaviour
 		animator = g.GetComponent<Animator>();
 		animator.PlayInFixedTime("Explode");
 		yield return new WaitForSeconds(.1f);
-		HealDamage(4);
+		HealDamage(maxHealth);
 		playerCollider.enabled = false;
 		playerAnimator.enabled = true;
 		playerAnimator.PlayInFixedTime("Respawn");

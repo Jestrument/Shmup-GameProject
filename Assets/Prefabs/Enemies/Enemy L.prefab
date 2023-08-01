@@ -93,6 +93,7 @@ MonoBehaviour:
   render: {fileID: 6556192942904095547}
   original: {fileID: 21300000, guid: 75b456d0677ba684382a0325684d8743, type: 3}
   flash: {fileID: 21300000, guid: 11b8d6c5ed8c7dc4193780e48989f21e, type: 3}
+  hasGun: 1
 --- !u!114 &2201071406940476248
 MonoBehaviour:
   m_ObjectHideFlags: 0

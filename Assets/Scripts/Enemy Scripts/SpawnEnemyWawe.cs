@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnEnemyWawe : MonoBehaviour
 {
@@ -44,10 +45,12 @@ public class SpawnEnemyWawe : MonoBehaviour
 	
 	private SpawnState state = SpawnState.Counting;
 	
+	public GameObject levelDone;
+	
     void Start()
     {
         timer = timeBetweenWawes;
-		wawes = new Wawe[Random.Range(1,5)];
+		wawes = new Wawe[Random.Range(2,5)];
 		for(int i = 0; i < wawes.Length; i++)
 		{
 			int waweNumber = Random.Range(0,8);
@@ -108,6 +111,7 @@ public class SpawnEnemyWawe : MonoBehaviour
 		
 		if(state == SpawnState.Finished)
 		{
+			levelDone.SetActive(true);
 			return;
 		}
 		

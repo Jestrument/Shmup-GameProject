@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
 	
 	EnemyPooler enemyPooler;
 	DeathPooler deathPooler;
+	public bool hasGun;
 	
 	private void Start()
 	{
@@ -39,9 +40,18 @@ public class EnemyHealth : MonoBehaviour
 			g.transform.rotation = Quaternion.identity;
 			g.SetActive(true);
 			this.gameObject.SetActive(false);
-			foreach(GameObject gun in guns)
+			switch(hasGun)
 			{
-				gun.SetActive(true);
+				case true:
+				foreach(GameObject gun in guns)
+				{
+					gun.GetComponent<EnemyGunHealth>().Reset();
+					gun.SetActive(true);
+				}
+				break;
+				
+				case false:
+				break;
 			}
 			health = maxHealth;
 			enemyPooler.ReturnObject(gameObject);
